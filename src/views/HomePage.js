@@ -60,14 +60,14 @@ function HomePage({ user }) {
       <form onSubmit={handleAddText}>
         <input type="text" placeholder="Naslov" value={title} onChange={(e) => setTitle(e.target.value)} required />
         <input type="text" placeholder="Autor" value={author} onChange={(e) => setAuthor(e.target.value)} required />
-        <input type="number" placeholder="Broj stranica" value={pageCount} onChange={(e) => setPageCount(e.target.value)} required />
+        <input type="number" placeholder="Broj stranice" value={pageCount} onChange={(e) => setPageCount(e.target.value)} required />
         <input type="file" accept="image/*" onChange={handleImageChange} required />
         <button type="submit">Dodaj sadržaj</button>
       </form>
       {texts.map((text) => (
         <div key={text._id}>
           <h3>{text.title} - {text.author}</h3>
-          <p>Broj stranica: {text.pageCount}</p>
+          <p>Broj stranice: {text.pageCount}</p>
           <img src={`http://localhost:5000/uploads/${text.image}`} alt="Slika sadržaja" style={{ maxWidth: '100%', height: 'auto' }} />
           <button onClick={() => handleDeleteText(text._id)}>Obriši sadržaj</button>
           <OCR textId={text._id} />
